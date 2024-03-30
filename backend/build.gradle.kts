@@ -37,6 +37,9 @@ dependencies {
     implementation("aws.sdk.kotlin:ses:1.0.30")
     implementation("aws.sdk.kotlin:s3:1.0.30")
     implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.11")
+    implementation("org.flywaydb:flyway-core")
+    implementation("org.flywaydb:flyway-mysql")
+
 
     compileOnly("io.jsonwebtoken:jjwt-api:0.11.2")
     runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.2")
