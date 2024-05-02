@@ -7,6 +7,7 @@ plugins {
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.spring") version kotlinVersion
     kotlin("plugin.jpa") version kotlinVersion
+    id("org.jetbrains.kotlinx.kover") version "0.7.5"
 }
 
 group = "com.dclass"
@@ -86,5 +87,16 @@ tasks {
 
     named("processResources") {
         dependsOn(copySecret)
+    }
+}
+
+koverReport {
+    verify {
+        rule {
+            isEnabled = true
+            bound {
+                minValue = 80 // Minimum coverage percentage
+            }
+        }
     }
 }

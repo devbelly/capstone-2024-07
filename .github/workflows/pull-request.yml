@@ -27,4 +27,16 @@ jobs:
 
       - name: Test
         working-directory: ./backend
-        run: ./gradlew clean test
+        run: ./gradlew koverXmlReport
+
+      - name: Add coverage report to PR
+        id: kover
+        uses: mi-kas/kover-report@v1
+        with:
+          path: |
+            ${{ github.workspace }}/backend/build/reports/kover/report.xml
+          title: Code Coverage
+          update-comment: true
+          min-coverage-overall: 40
+          min-coverage-changed-files: 40
+          coverage-counter-type: LINE
