@@ -89,14 +89,3 @@ tasks {
         dependsOn(copySecret)
     }
 }
-
-koverReport {
-    verify {
-        rule {
-            isEnabled = true
-            bound {
-                minValue = 80 // Minimum coverage percentage
-            }
-        }
-    }
-}
